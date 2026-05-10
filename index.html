@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Round Robin vs SRTF CPU scheduling comparison project.">
+    <title>Round Robin vs SRTF Comparison Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">Operating Systems Course</p>
+                <h1>Round Robin vs SRTF Comparison Project</h1>
+                <p class="hero-text">Compare Round Robin and SRTF using waiting time, turnaround time, response time, and Gantt charts.</p>
+            </div>
+            <div class="hero-card">
+                <span class="hero-card-label">Project Focus</span>
+                <strong>Correct metrics</strong>
+                <p>Shows CT, TAT, WT, RT, averages, Gantt charts, comparison summary, and final conclusion.</p>
+            </div>
+        </header>
+
+        <section id="input-section" class="panel active">
+            <div class="section-head">
+                <div>
+                    <h2>Input Panel</h2>
+                    <p>Enter process data manually or use a ready test scenario.</p>
+                </div>
+                <span id="status-label" class="status-label">Ready</span>
+            </div>
+
+            <div class="scenario-box">
+                <p class="scenario-title">Required Test Scenarios</p>
+                <div class="scenario-grid">
+                    <button type="button" class="scenario-btn" data-scenario="a">Scenario A<br><span>Basic workload</span></button>
+                    <button type="button" class="scenario-btn" data-scenario="b">Scenario B<br><span>Quantum sensitivity</span></button>
+                    <button type="button" class="scenario-btn" data-scenario="c">Scenario C<br><span>Short-job-heavy</span></button>
+                    <button type="button" class="scenario-btn" data-scenario="d">Scenario D<br><span>Fairness case</span></button>
+                    <button type="button" class="scenario-btn" data-scenario="e">Scenario E<br><span>Invalid case</span></button>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <label class="field">
+                    <span>Number of Processes</span>
+                    <input type="number" id="num-processes" min="1" max="10" placeholder="1 to 10">
+                </label>
+                <label class="field">
+                    <span>Time Quantum</span>
+                    <input type="number" id="time-quantum" min="1" placeholder="Greater than 0">
+                </label>
+            </div>
+
+            <div class="button-row">
+                <button type="button" id="generate-table-btn" class="btn primary">Generate Process Table</button>
+                <button type="button" id="clear-btn" class="btn secondary">Clear</button>
+            </div>
+
+            <form id="process-form" class="process-area hidden">
+                <div class="table-wrap">
+                    <table class="data-table process-table">
+                        <thead>
+                            <tr>
+                                <th>Process ID</th>
+                                <th>Arrival Time</th>
+                                <th>Burst Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="process-tbody"></tbody>
+                    </table>
+                </div>
+                <div class="button-row align-end">
+                    <button type="submit" id="run-btn" class="btn primary">Compare Algorithms</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="output-section" class="panel hidden">
+            <div class="section-head">
+                <div>
+                    <h2>Simulation Results</h2>
+                    <p id="run-info">Round Robin and SRTF comparison output.</p>
+                </div>
+                <div class="header-actions">
+                    <button type="button" id="run-again-btn" class="btn primary small">Run Another Simulation</button>
+                </div>
+            </div>
+
+            <div class="results-grid">
+                <article class="result-card">
+                    <h3>Round Robin</h3>
+                    <p class="card-note">Uses time slices. Results change when the quantum changes.</p>
+                    <div class="table-wrap">
+                        <table class="data-table result-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Arrival</th>
+                                    <th>Burst</th>
+                                    <th>CT</th>
+                                    <th>TAT</th>
+                                    <th>WT</th>
+                                    <th>RT</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rr-tbody"></tbody>
+                        </table>
+                    </div>
+                    <div class="averages" id="rr-averages"></div>
+                    <div class="gantt-section">
+                        <h4>Round Robin Gantt Chart</h4>
+                        <div class="gantt-chart" id="rr-gantt"></div>
+                    </div>
+                    <div class="queue-section">
+                        <h4>Round Robin Ready Queue View</h4>
+                        <div class="queue-view" id="rr-queue-view"></div>
+                    </div>
+                </article>
+
+                <article class="result-card">
+                    <h3>SRTF</h3>
+                    <p class="card-note">Chooses the process with the shortest remaining burst time.</p>
+                    <div class="table-wrap">
+                        <table class="data-table result-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Arrival</th>
+                                    <th>Burst</th>
+                                    <th>CT</th>
+                                    <th>TAT</th>
+                                    <th>WT</th>
+                                    <th>RT</th>
+                                </tr>
+                            </thead>
+                            <tbody id="srtf-tbody"></tbody>
+                        </table>
+                    </div>
+                    <div class="averages" id="srtf-averages"></div>
+                    <div class="gantt-section">
+                        <h4>SRTF Gantt Chart</h4>
+                        <div class="gantt-chart" id="srtf-gantt"></div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="summary-grid">
+                <article class="result-card">
+                    <h3>Comparison Summary</h3>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Round Robin</th>
+                                    <th>SRTF</th>
+                                    <th>Better</th>
+                                </tr>
+                            </thead>
+                            <tbody id="comparison-tbody"></tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <article class="result-card conclusion-card">
+                    <h3>Final Conclusion</h3>
+                    <div id="final-conclusion" class="conclusion-text"></div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
