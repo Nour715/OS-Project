@@ -119,7 +119,7 @@ These functions are responsible for:
 -Metrics generation
 The scheduling cycle is executed through iterative processing loops until all processes complete execution.
 
-#Round Robin Execution Flow
+# Round Robin Execution Flow
 
 The Round Robin implementation performs the following operations:
 
