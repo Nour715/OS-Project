@@ -172,7 +172,7 @@ This project demonstrates practical implementation of operating system schedulin
 -Scheduling fairness
 -Performance optimization
 
-# The simulator can be used as an educational tool for Operating Systems courses to help students understand scheduling behavior visually and analytically.
+ The simulator can be used as an educational tool for Operating Systems courses to help students understand scheduling behavior visually and analytically.
 
 # Conclusion
 The simulator successfully demonstrates the operational differences between Round Robin and SRTF scheduling algorithms.
