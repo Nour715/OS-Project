@@ -89,16 +89,16 @@ The application follows a modular functional architecture consisting of the foll
 
  Module  Responsibility 
 
- State Management -> Stores application state and execution data 
- Cache & UI Sections ->  Handles DOM references and UI transitions 
- Validation & Data Collection -> Validates and collects user input 
- Scheduling Logic (RR) -> Executes Round Robin scheduling 
- Scheduling Logic (SRTF) -> Executes SRTF scheduling 
- Results Processing & Calculations -> Processes results and calculates metrics 
- Rendering & Display -> Displays tables, charts, and queue views 
- Comparison & Output Summary -> Compares algorithms and generates conclusions 
- Scenarios Management -> Loads predefined testing cases 
- Event Handlers & Initialization -> Controls application events and startup 
+ -State Management -> Stores application state and execution data 
+ -Cache & UI Sections ->  Handles DOM references and UI transitions 
+ -Validation & Data Collection -> Validates and collects user input 
+ -Scheduling Logic (RR) -> Executes Round Robin scheduling 
+ -Scheduling Logic (SRTF) -> Executes SRTF scheduling 
+ -Results Processing & Calculations -> Processes results and calculates metrics 
+ -Rendering & Display -> Displays tables, charts, and queue views 
+ -Comparison & Output Summary -> Compares algorithms and generates conclusions 
+ -Scenarios Management -> Loads predefined testing cases 
+ -Event Handlers & Initialization -> Controls application events and startup 
 
 
 # Core Scheduling Logic
@@ -133,7 +133,7 @@ The Round Robin implementation performs the following operations:
 7.Generate Gantt Chart and Ready Queue history
 
 
-#SRTF Execution Flow
+# SRTF Execution Flow
 
 The SRTF implementation performs the following operations:
 
@@ -147,22 +147,22 @@ The SRTF implementation performs the following operations:
 8.Visualization Components
 
 
-#Gantt Chart
+# Gantt Chart
 Displays CPU execution order and execution duration for each process.
 
-#Ready Queue View
+# Ready Queue View
 Displays the state of the Round Robin Ready Queue at different execution times.
 
-#Comparison Table
+# Comparison Table
 Compares both algorithms using average scheduling metrics.
 
-#Technologies Used
+# Technologies Used
 -HTML5
 -CSS3
 -JavaScript (ES6)
 No external libraries or frameworks were used in order to focus on implementing scheduling logic manually.
 
-#Educational Significance
+# Educational Significance
 This project demonstrates practical implementation of operating system scheduling concepts including:
 
 -Preemptive scheduling
@@ -173,9 +173,9 @@ This project demonstrates practical implementation of operating system schedulin
 -Scheduling fairness
 -Performance optimization
 
-#The simulator can be used as an educational tool for Operating Systems courses to help students understand scheduling behavior visually and analytically.
+# The simulator can be used as an educational tool for Operating Systems courses to help students understand scheduling behavior visually and analytically.
 
-#Conclusion
+# Conclusion
 The simulator successfully demonstrates the operational differences between Round Robin and SRTF scheduling algorithms.
 
 Round Robin provides better fairness and responsiveness through time-sharing, while SRTF generally achieves lower waiting and turnaround times by prioritizing shorter processes.
