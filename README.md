@@ -87,19 +87,18 @@ Average values for each metric are also calculated for algorithm comparison.
 
 The application follows a modular functional architecture consisting of the following sections:
 
- Module  Responsibility 
-
- -State Management -> Stores application state and execution data 
- -Cache & UI Sections ->  Handles DOM references and UI transitions 
- -Validation & Data Collection -> Validates and collects user input 
- -Scheduling Logic (RR) -> Executes Round Robin scheduling 
- -Scheduling Logic (SRTF) -> Executes SRTF scheduling 
- -Results Processing & Calculations -> Processes results and calculates metrics 
- -Rendering & Display -> Displays tables, charts, and queue views 
- -Comparison & Output Summary -> Compares algorithms and generates conclusions 
- -Scenarios Management -> Loads predefined testing cases 
- -Event Handlers & Initialization -> Controls application events and startup 
-
+| Module | Responsibility |
+|---|---|
+| State Management | Stores application state and execution data |
+| Cache & UI Sections | Handles DOM references and UI transitions |
+| Validation & Data Collection | Validates and collects user input |
+| Scheduling Logic (RR) | Executes Round Robin scheduling |
+| Scheduling Logic (SRTF) | Executes SRTF scheduling |
+| Results Processing & Calculations | Processes results and calculates metrics |
+| Rendering & Display | Displays tables, charts, and queue views |
+| Comparison & Output Summary | Compares algorithms and generates conclusions |
+| Scenarios Management | Loads predefined testing cases |
+| Event Handlers & Initialization | Controls application events and startup |
 
 # Core Scheduling Logic
 
